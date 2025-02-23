@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import ProfilePage from "./ProfilePage";
-import UserContext from "./UserContext";
+import UserContext from "./components/UserContext";
 import UserInfo from "./UserInfo";
 import UserDetails from "./UserDetails";
 
