@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import UserContext from "./UserContext";
 
 export default function UserDetails() {
-  const { user, setUser } = useContext(UserContext);
-  setUser({ name: "Jane Doe", email: "jane.doe@example.com" });
+  const user = useContext(UserContext);
   return (
     <div>
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
+      <p>Name: {user.name}</p>
+      <p>Email: {user.email}</p>
     </div>
   );
 }
