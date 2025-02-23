@@ -6,6 +6,7 @@ import ProfilePage from "./ProfilePage";
 import UserContext from "./components/UserContext";
 import UserInfo from "./UserInfo";
 import UserDetails from "./UserDetails";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
       <ProfilePage />;
       <UserInfo />
       <UserDetails />
+      <UserProfile />
     </UserContext.Provider>
   );
 }
