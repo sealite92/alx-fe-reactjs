@@ -1,28 +1,17 @@
-// src/components/RegistrationForm.js
+// src/components/RegistrationForm.jsx
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
 
   const validate = () => {
     const errors = {};
-    if (!formData.username) errors.username = "Username is required";
-    if (!formData.email) errors.email = "Email is required";
-    if (!formData.password) errors.password = "Password is required";
+    if (!username) errors.username = "Username is required";
+    if (!email) errors.email = "Email is required";
+    if (!password) errors.password = "Password is required";
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -30,8 +19,7 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Mock API call (e.g., console log or show success message)
-      console.log("Form submitted successfully", formData);
+      console.log("Form submitted successfully", { username, email, password });
     }
   };
 
@@ -42,8 +30,8 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}
-          onChange={handleChange}
+          value={username} // Direct value binding
+          onChange={(e) => setUsername(e.target.value)}
         />
         {errors.username && <span>{errors.username}</span>}
       </div>
@@ -52,8 +40,8 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
+          value={email} // Direct value binding
+          onChange={(e) => setEmail(e.target.value)}
         />
         {errors.email && <span>{errors.email}</span>}
       </div>
@@ -62,8 +50,8 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password} // Direct value binding
+          onChange={(e) => setPassword(e.target.value)}
         />
         {errors.password && <span>{errors.password}</span>}
       </div>
