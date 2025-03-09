@@ -1,4 +1,4 @@
-// src/PostsComponent.jsx
+// src/components/PostsComponent.jsx
 import { useQuery } from "react-query";
 
 const fetchPosts = async () => {
@@ -10,12 +10,16 @@ const fetchPosts = async () => {
 };
 
 function PostsComponent() {
-  const { data, error, isLoading, refetch } = useQuery("posts", fetchPosts, {
-    staleTime: 5000, // Cache for 5 seconds
-  });
+  const { data, isLoading, isError, error, refetch } = useQuery(
+    "posts",
+    fetchPosts,
+    {
+      staleTime: 5000, // Cache for 5 seconds
+    }
+  );
 
   if (isLoading) return <p>Loading posts...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (isError) return <p>Error: {error.message}</p>;
 
   return (
     <div>
