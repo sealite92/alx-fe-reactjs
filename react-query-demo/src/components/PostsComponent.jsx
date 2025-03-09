@@ -14,7 +14,10 @@ function PostsComponent() {
     "posts",
     fetchPosts,
     {
-      staleTime: 5000, // Cache for 5 seconds
+      staleTime: 5000, // Cache data for 5 seconds before marking as stale
+      cacheTime: 1000 * 60 * 10, // Keep cached data for 10 minutes
+      refetchOnWindowFocus: false, // Prevent refetching when window gains focus
+      keepPreviousData: true, // Preserve previous data while fetching new data
     }
   );
 
