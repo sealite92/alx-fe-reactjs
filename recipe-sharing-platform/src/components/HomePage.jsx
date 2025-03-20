@@ -7,10 +7,12 @@ export default function HomePage() {
   return (
     <>
       <div>
-        <div style={{ backgroundImage: `url(${recipe.image})` }}>
-          <h1>{recipe.title}</h1>
-          <p>{recipe.summary}</p>
-        </div>
+        {data.map((recipe) => {
+          <div style={{ backgroundImage: `url(${recipe.image})` }}>
+            <h1>{recipe.title}</h1>
+            <p>{recipe.summary}</p>
+          </div>;
+        })}
       </div>
     </>
   );
