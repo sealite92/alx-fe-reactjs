@@ -18,6 +18,13 @@ export default function HomePage() {
             <div style={{ backgroundImage: `url(${recipe.image})` }}>
               <h1 className="text-4xl">{recipe.title}</h1>
               <p>{recipe.summary}</p>
+
+              <Link
+                to="/add-recipe"
+                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-200"
+              >
+                + Add New Recipe
+              </Link>
             </div>
           </>;
         })}
