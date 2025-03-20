@@ -6,7 +6,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="rounded-md shadow-sm bg-green-200 hover:bg-green-400">
+      <div className="rounded-md shadow-sm bg-green-200 hover:bg-green-400 w-7/12 md:w-3/12">
         {data.map((recipe) => {
           <div style={{ backgroundImage: `url(${recipe.image})` }}>
             <h1 className="text-4xl">{recipe.title}</h1>
