@@ -6,10 +6,10 @@ export default function HomePage() {
 
   return (
     <>
-      <div>
+      <div className="rounded-md shadow-sm bg-green-200 hover:bg-green-400">
         {data.map((recipe) => {
           <div style={{ backgroundImage: `url(${recipe.image})` }}>
-            <h1>{recipe.title}</h1>
+            <h1 className="text-4xl">{recipe.title}</h1>
             <p>{recipe.summary}</p>
           </div>;
         })}
