@@ -1,10 +1,7 @@
-// src/services/githubService.js
 import axios from "axios";
 
-// GitHub API base URL
-const BASE_URL = "https://api.github.com/users";
+const BASE_URL = "https://api.github.com";
 
-// Create a configured axios instance
 const github = axios.create({
   baseURL: BASE_URL,
   headers: {
@@ -12,8 +9,16 @@ const github = axios.create({
   },
 });
 
-// Function to fetch user data
-export async function fetchUserData(username) {
-  const response = await github.get(`/${username}`);
+// New advanced search function
+export async function searchUsers({ username, location, minRepos }) {
+  let query = "";
+
+  if (username) query += `${username} in:login `;
+  if (location) query += `location:${location} `;
+  if (minRepos) query += `repos:>=${minRepos}`;
+
+  const response = await github.get(
+    `/search/users?q=${encodeURIComponent(query)}`
+  );
   return response.data;
 }
