@@ -9,7 +9,7 @@ const github = axios.create({
   },
 });
 
-// New advanced search function
+// ✅ This function uses the /search/users endpoint
 export async function searchUsers({ username, location, minRepos }) {
   let query = "";
 
