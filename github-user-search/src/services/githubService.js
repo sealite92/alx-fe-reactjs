@@ -43,9 +43,7 @@ export async function searchUsers({ username, location, minRepos }) {
   if (minRepos) query += `repos:>=${minRepos}`;
 
   // The actual API call using /search/users?q={query}
-  const response = await github.get(
-    `/search/users?q=${encodeURIComponent(query)}`
-  );
+  const response = await github.get("https://api.github.com/search/users?q");
 
   return response.data;
 }
