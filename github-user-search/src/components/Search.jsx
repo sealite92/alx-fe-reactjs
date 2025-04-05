@@ -100,7 +100,7 @@
 // export default Search;
 
 import { useState } from "react";
-import { searchUsers } from "../services/githubService"; // Make sure to import the correct service
+import { fetchUserData } from "../services/githubService"; // Make sure to import the correct service
 
 export default function Search() {
   const [username, setUsername] = useState(""); // For storing the username
@@ -117,7 +117,7 @@ export default function Search() {
     setUserData(null);
 
     try {
-      const data = await searchUsers({ username, location, minRepos });
+      const data = await fetchUserData({ username, location, minRepos });
       setUserData(data.items || []); // GitHub's search returns items
     } catch (err) {
       setError("Looks like we can't find the user.");

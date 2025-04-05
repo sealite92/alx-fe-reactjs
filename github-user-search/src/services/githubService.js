@@ -35,7 +35,7 @@ const github = axios.create({
 });
 
 // Advanced search function using the GitHub Search API
-export async function searchUsers({ username, location, minRepos }) {
+export async function fetchUserData({ username, location, minRepos }) {
   let query = "";
 
   if (username) query += `${username} in:login `;
